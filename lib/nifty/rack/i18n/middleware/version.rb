@@ -1,7 +1,7 @@
 module Nifty
   module Rack
     module I18n
-      module Middleware
+      class Middleware
         VERSION = '0.1.0'
       end
     end
