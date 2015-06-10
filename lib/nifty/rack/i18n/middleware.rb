@@ -24,7 +24,7 @@ module Nifty
         def extract_locales(env)
           request = ::Rack::Request.new(env)
 
-          [request.params['locale'], env['HTTP_X_LOCALE'], env['X_LOCALE']]
+          [request.params['locale'], env['HTTP_X_LOCALE'], env['HTTP_HTTP_X_LOCALE']]
         end
 
         def set_locale(*locales)
