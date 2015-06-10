@@ -50,7 +50,33 @@ RSpec.describe 'Locale in headers' do
   end
 
   describe 'HTTP header "X_LOCALE"' do
+    before do
+      request['X_LOCALE'] = locale
+    end
 
+    context 'with the available locale "nl"' do
+      let(:locale) { 'nl' }
+
+      it 'sets the current locale to "nl"' do
+        expect(current_locale).to eql locale
+      end
+    end
+
+    context 'with the available locale "de"' do
+      let(:locale) { 'de' }
+
+      it 'sets the current locale to "nl"' do
+        expect(current_locale).to eql locale
+      end
+    end
+
+    context 'with the unavailable locale "es"' do
+      let(:locale) { 'es' }
+
+      it 'sets the current locale to the default locale "en"' do
+        expect(current_locale).to eql default_locale
+      end
+    end
   end
 
 end
