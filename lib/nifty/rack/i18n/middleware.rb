@@ -29,7 +29,7 @@ module Nifty
 
         def set_locale(*locales)
           filter = ->(unfiltered_locale) { unfiltered_locale if ::I18n.available_locales.map(&:to_s).include?(unfiltered_locale.to_s) }
-          filtered_locale = locales.find { |locale| filter.call(locale) }
+          filtered_locale = locales.flatten.find { |locale| filter.call(locale) }
 
           ::I18n.locale = filtered_locale || ::I18n.default_locale
         end
