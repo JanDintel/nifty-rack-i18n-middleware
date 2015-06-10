@@ -3,3 +3,5 @@ source 'https://rubygems.org'
 gem 'sinatra', require: false
 
 gem 'i18n'
+
+gem 'nifty-rack-i18n-middleware', path: '../../../nifty-rack-i18n-middleware'
